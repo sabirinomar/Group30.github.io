@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is San Francisco Safe at Night?</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #fafafa;
+    }
+
+    h1, h2 {
+      color: #222;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    canvas {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    .district {
+      margin-bottom: 25px;
+    }
+
+    .highlight {
+      background: #f0f4ff;
+      padding: 10px;
+      border-left: 4px solid #4a90e2;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Is San Francisco Safe at Night?</h1>
+
+<p>
+San Francisco is known for its vibrant nightlife, attracting both locals and tourists to its bars, restaurants, and cultural hotspots. 
+But how safe is the city after dark?
+</p>
+
+<p>
+This project explores crime patterns during nighttime hours in <b>San Francisco</b>, focusing on three key crime types:
+<b>assault</b>, <b>robbery</b>, and <b>motor vehicle theft</b>. 
+These categories were selected because they directly influence how safe people feel at night. 
+Assault and robbery represent immediate personal danger, while vehicle theft reflects risks associated with parking and mobility during nightlife activities.
+</p>
+
+<div class="highlight">
+<b>Key Question:</b> Does crime increase during nightlife hours, and how does this affect perceived safety?
+</div>
+
+<h2>What Happens at Night?</h2>
+
+<p>
+To understand nightlife safety, we focus on crimes occurring during evening and late-night hours. It is important to state that the data is based on 2003-2026 crime reports, which may not capture all incidents but provides a comprehensive overview of trends over time.
+The chart below shows how crime levels vary across the week, normalized to highlight patterns rather than absolute numbers.
+</p>
+
+<canvas id="crimeChart"></canvas>
+
+<p>
+All three crime types show a clear pattern: incidents increase towards the weekend and peak on Saturday and Sunday. 
+This aligns with increased nightlife activity.
+
+Violent crimes such as assault and robbery rise significantly during these periods, suggesting higher risks in crowded social environments. 
+At the same time, motor vehicle theft also peaks, indicating that even when individuals are not directly targeted, their property may still be vulnerable.
+</p>
+
+<h2>Where is Nightlife Risk Concentrated?</h2>
+
+<p>
+Crime is not evenly distributed across the city. 
+
+SÅDAN SER DET UD UDFRA DISTRICT..
+
+
+<h2>So, is San Francisco safe at night?</h2>
+
+
+
+<p>
+The data suggests that while the city is not uniformly dangerous, risks do increase during nighttime—especially on weekends. 
+Violent crimes such as assault and robbery peak during these periods, and property crimes like vehicle theft remain consistently high. 
+bla bla vla
+</p>
+
+
+<script>
+const data = {
+  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+datasets: [
+{
+  label: "assault",
+  data: [9953, 9402, 9446, 9791, 12006, 15889, 15586]
+},
+{
+  label: "robbery",
+  data: [4371, 4251, 4207, 4255, 4604, 5708, 5548]
+},
+{
+  label: "vehicle theft",
+  data: [8597, 8625, 8779, 9063, 10314, 10963, 10053]
+},
+]
+};
+
+new Chart(document.getElementById("crimeChart"), {
+  type: "line",
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top'
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: "The amount of crime"
+        }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
